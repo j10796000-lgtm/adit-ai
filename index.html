@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adit AI</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app" aria-label="Adit AI research assistant">
+      <section id="loginView" class="login-view">
+        <div class="login-visual" aria-hidden="true">
+          <div class="orbit one"></div>
+          <div class="orbit two"></div>
+          <div class="signal"></div>
+        </div>
+        <form id="loginForm" class="login-panel">
+          <p class="eyebrow">Adit AI</p>
+          <h1>Private research, faster answers.</h1>
+          <label>
+            <span>Name</span>
+            <input id="nameInput" autocomplete="name" placeholder="Adit" required />
+          </label>
+          <label>
+            <span>Vault passphrase</span>
+            <input
+              id="passphraseInput"
+              type="password"
+              autocomplete="current-password"
+              placeholder="Keep this secret"
+              minlength="8"
+              required
+            />
+          </label>
+          <button type="submit">Enter Adit AI</button>
+          <p class="privacy-note">
+            Saved chats are encrypted in this browser. AI requests are processed only when you send them.
+          </p>
+        </form>
+      </section>
+
+      <section id="workspaceView" class="workspace hidden">
+        <aside class="sidebar">
+          <div class="product">
+            <span class="product-mark"></span>
+            <div>
+              <p class="eyebrow">Adit AI</p>
+              <strong>Research Vault</strong>
+            </div>
+          </div>
+          <button id="newThreadButton" class="command-button" type="button">New Research</button>
+          <nav id="threadList" class="thread-list" aria-label="Conversations"></nav>
+          <div class="vault-card">
+            <span class="lock-dot"></span>
+            <div>
+              <strong>Encrypted locally</strong>
+              <p>Only this browser can reopen saved threads with your passphrase.</p>
+            </div>
+          </div>
+        </aside>
+
+        <section class="research">
+          <header class="topbar">
+            <div>
+              <p class="eyebrow">Search-grade assistant</p>
+              <h2 id="threadTitle">Untitled Research</h2>
+            </div>
+            <div class="top-actions">
+              <button id="exportButton" class="icon-button" type="button" title="Export encrypted vault">
+                ⤓
+              </button>
+              <button id="logoutButton" class="icon-button" type="button" title="Lock vault">⌁</button>
+            </div>
+          </header>
+
+          <section id="messages" class="messages" aria-live="polite"></section>
+
+          <form id="composer" class="composer">
+            <div id="fileTray" class="file-tray"></div>
+            <div class="composer-row">
+              <button id="attachButton" class="icon-button" type="button" title="Attach files">＋</button>
+              <input id="fileInput" type="file" multiple hidden />
+              <textarea
+                id="promptInput"
+                placeholder="Ask Adit AI to research, compare, summarize, verify, or analyze..."
+                rows="1"
+                required
+              ></textarea>
+              <label class="search-toggle" title="Use live web search when an API key is configured">
+                <input id="searchToggle" type="checkbox" checked />
+                <span>Search</span>
+              </label>
+              <button id="sendButton" class="send-button" type="submit">Send</button>
+            </div>
+          </form>
+        </section>
+      </section>
+    </main>
+
+    <template id="messageTemplate">
+      <article class="message">
+        <div class="message-meta"></div>
+        <div class="message-body"></div>
+        <div class="source-list"></div>
+      </article>
+    </template>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
